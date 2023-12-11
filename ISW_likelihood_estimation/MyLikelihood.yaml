@@ -1,0 +1,12 @@
+data_file: 
+- /users/schaki/hi_class_pub_devel/Data/unWISE_Planck_ISW/unWISE_Planck_ISW/ISW_m0_removed_new_bins/Bandpowers_Cross_Sample1_Sample5.dat
+- /users/schaki/hi_class_pub_devel/Data/unWISE_Planck_ISW/unWISE_Planck_ISW/ISW_m0_removed_new_bins/Bandpowers_Cross_Sample2_Sample5.dat
+- /users/schaki/hi_class_pub_devel/Data/unWISE_Planck_ISW/unWISE_Planck_ISW/ISW_m0_removed_new_bins/Bandpowers_Cross_Sample7_Sample5.dat
+cov_file: 
+- /users/schaki/hi_class_pub_devel/Data/unWISE_Planck_ISW/unWISE_Planck_ISW/ISW_m0_removed_new_bins/Bandpowers_Cross_Sample1_Sample5_Planck_sims_cov.dat
+- /users/schaki/hi_class_pub_devel/Data/unWISE_Planck_ISW/unWISE_Planck_ISW/ISW_m0_removed_new_bins/Bandpowers_Cross_Sample2_Sample5_Planck_sims_cov.dat
+- /users/schaki/hi_class_pub_devel/Data/unWISE_Planck_ISW/unWISE_Planck_ISW/ISW_m0_removed_new_bins/Bandpowers_Cross_Sample7_Sample5_Planck_sims_cov.dat
+w_file: 
+- /users/schaki/hi_class_pub_devel/Data/unWISE_Planck_ISW/unWISE_Planck_ISW/isw_blue_windows.txt
+- /users/schaki/hi_class_pub_devel/Data/unWISE_Planck_ISW/unWISE_Planck_ISW/isw_green_windows.txt
+- /users/schaki/hi_class_pub_devel/Data/unWISE_Planck_ISW/unWISE_Planck_ISW/isw_red_16.2_windows.txt

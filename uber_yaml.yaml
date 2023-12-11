@@ -1,0 +1,38 @@
+debug: True
+stop_at_error: True
+force: True
+
+likelihood:
+  ISW_likelihood_estimation.likelihood_try.MyLikelihood:
+    python_path: /home/subarna/Desktop/ISW_likelihood/ISW_likelihood_estimation
+    data_file:
+    - /users/schaki/hi_class_pub_devel/Data/unWISE_Planck_ISW/unWISE_Planck_ISW/ISW_m0_removed_new_bins/Bandpowers_Cross_Sample1_Sample5.dat
+    - /users/schaki/hi_class_pub_devel/Data/unWISE_Planck_ISW/unWISE_Planck_ISW/ISW_m0_removed_new_bins/Bandpowers_Cross_Sample2_Sample5.dat
+    - /users/schaki/hi_class_pub_devel/Data/unWISE_Planck_ISW/unWISE_Planck_ISW/ISW_m0_removed_new_bins/Bandpowers_Cross_Sample7_Sample5.dat
+    cov_file:
+    - /users/schaki/hi_class_pub_devel/Data/unWISE_Planck_ISW/unWISE_Planck_ISW/ISW_m0_removed_new_bins/Bandpowers_Cross_Sample1_Sample5_Planck_sims_cov.dat
+    - /users/schaki/hi_class_pub_devel/Data/unWISE_Planck_ISW/unWISE_Planck_ISW/ISW_m0_removed_new_bins/Bandpowers_Cross_Sample2_Sample5_Planck_sims_cov.dat
+    - /users/schaki/hi_class_pub_devel/Data/unWISE_Planck_ISW/unWISE_Planck_ISW/ISW_m0_removed_new_bins/Bandpowers_Cross_Sample7_Sample5_Planck_sims_cov.dat
+    w_file: 
+    - /users/schaki/hi_class_pub_devel/Data/unWISE_Planck_ISW/unWISE_Planck_ISW/isw_blue_windows.txt
+    - /users/schaki/hi_class_pub_devel/Data/unWISE_Planck_ISW/unWISE_Planck_ISW/isw_green_windows.txt
+    - /users/schaki/hi_class_pub_devel/Data/unWISE_Planck_ISW/unWISE_Planck_ISW/isw_red_16.2_windows.txt
+
+params:
+  h: 0.67810
+  omega_b: 0.02238280
+  omega_cdm: 0.1201075
+  A_s: 2.100549e-09
+  n_s: 0.9660499
+
+theory:
+  ISW_likelihood_estimation.my_theory.CosmoClass:
+    #ignore_obsolete: True
+    #path: /home/subarna/Desktop/hi_class_pub_devel
+
+sampler:
+ evaluate:
+
+output: chains/ISW_cls_estimation
+
+

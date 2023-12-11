@@ -1,0 +1,90 @@
+designer_params: /users/schaki/hi_class_pub_devel/designer_fR_stable_params_B0_0p01.dat
+common_settings:
+  output: 'tCl,pCl,lCl,mPk,mTk,dCl'
+  modes: 's'
+  ic: 'ad'
+  gauge: 'synchronous'
+  get_h_from_trace: 'no'
+
+params:  
+  h: 0.67810
+  YHe: 0.24
+  omega_b: 0.02238280
+  omega_cdm: 0.1201075
+  N_ur: 3.044
+  n_s: 0.9660499
+  A_s: 2.100549e-09
+
+standard_precision_params:
+  start_small_k_at_tau_c_over_tau_h: 1e-4
+  start_large_k_at_tau_h_over_tau_k: 1e-4
+  perturbations_sampling_stepsize: 0.03
+  l_logstep: 1.045
+  l_linstep: 25
+  k_per_decade_for_pk: 30
+  l_switch_limber: 40
+
+hiclass_params:
+  Omega_Lambda: 0. # leave this unchanged
+  Omega_fld: 0. # leave this unchanged
+  Omega_smg: -1. # leave this unchanged
+  gravity_model: 'stable_params'
+  # 'smg_file_name': '/Users/matteoc/Documents/Projects/class_env/hi_class_pub_devel/nkgb_stable_params_hiclass.dat',
+  #lna_smg: np.array2string(lna_smg, separator=',').replace('\n','').strip('[]') # converts the numpy array read in the previous cell to string
+  #Delta_M2: np.array2string(Delta_Mpl, separator=',').replace('\n','').strip('[]') # converts the numpy array read in the previous cell to string
+  #D_kin: np.array2string(Dkin, separator=',').replace('\n','').strip('[]') # converts the numpy array read in the previous cell to string
+  #cs2: np.array2string(cs2, separator=',').replace('\n','').strip('[]') # converts the numpy array read in the previous cell to string
+  parameters_smg: 0.004650127181866799 # alpha_B0; leave this unchanged to match the MG theory described by the functions in 'designer_fR_stable_params_B0_0p01.dat'
+  method_gr_smg: 'on' # we want this feature 'on', which tells us we revert to GR/LCDM for redsfhits higher than z_gr_smg
+  z_gr_smg: 99. # redsfhit at which we switch on the modifications to GR
+  expansion_model: 'wext' # which kind of parametrisation do we want for rho_de? Relevant for us are 'wext' and 'rho_de'
+  expansion_smg: 0.5 # leave this unchanged; the code will automatically change this to match Omega_de(z=0)
+  # 'expansion_file_name': '/Users/matteoc/Documents/Projects/class_env/hi_class_pub_devel/w_de_stable_nkgb_hiclass.dat',
+  #lna_de: np.array2string(lna_de, separator=',').replace('\n','').strip('[]') # converts the numpy array read in the previous cell to string
+  #de_evo: np.array2string(wext, separator=',').replace('\n','').strip('[]') # converts the numpy array read in the previous cell to string
+  # the remaining parameters are required to set the precision of the MG calculations. Leave them unchanged
+  skip_stability_tests_smg: 'yes'
+  pert_initial_conditions_smg: 'zero'
+  pert_ic_ini_z_ref_smg: 1e10 
+  pert_ic_tolerance_smg: 2e-2
+  pert_ic_regulator_smg: 1e-15
+  pert_qs_ic_tolerance_test_smg: 10
+  method_qs_smg: 'automatic'
+  z_fd_qs_smg: 0. 
+  trigger_mass_qs_smg: 1.e2
+  trigger_rad_qs_smg: 1.e2
+  eps_s_qs_smg: 0.01
+  n_min_qs_smg: 100
+  n_max_qs_smg: 10000 
+
+spectra_params1:
+  l_max_scalars: 6143
+  l_max_lss: 6143
+  P_k_max_h/Mpc: 12.
+  z_pk: '0, 0.5, 1, 2'
+  lensing: 'yes'
+  number_count_contributions: 'lensing'
+  selection: 'tophat'
+  selection_mean: '1.999,2.,2.001'
+  selection_width: '1.9,1.9,1.9'
+  selection_bias: '1.50,2.23,3.19'
+  selection_magnification_bias: '0.455, 0.648, 0.842'
+  non_diagonal: 0
+  use_dNdz_files: 'yes'
+  dNdz_filenames: '/users/schaki/hi_class_pub_devel/Data/unWISE_Planck_ISW/unWISE_Planck_ISW/dndz/xmatch_z_sampled/blue.txt,/users/schaki/hi_class_pub_devel/Data/unWISE_Planck_ISW/unWISE_Planck_ISW/dndz/xmatch_z_sampled/green.txt,/users/schaki/hi_class_pub_devel/Data/unWISE_Planck_ISW/unWISE_Planck_ISW/dndz/xmatch_z_sampled/red_16.6.txt'
+
+spectra_params2:
+  l_max_scalars: 6143
+  l_max_lss: 6143
+  P_k_max_h/Mpc: 12.
+  z_pk: '0, 0.5, 1, 2'
+  lensing: 'yes'
+  number_count_contributions: 'density'
+  selection: 'tophat'
+  selection_mean: '1.999,2.,2.001'
+  selection_width: '1.9,1.9,1.9'
+  selection_bias: '1.50,2.23,3.19'
+  selection_magnification_bias: '0.455, 0.648, 0.842'
+  non_diagonal: 0
+  use_dNdz_files: 'yes'
+  dNdz_filenames: '/users/schaki/hi_class_pub_devel/Data/unWISE_Planck_ISW/unWISE_Planck_ISW/dndz/xcorr_z_sampled-0.10-dr16_measured_bias_cmass+lowz_all_err_cut_off_z_gt_1.7/blue.txt,/users/schaki/hi_class_pub_devel/Data/unWISE_Planck_ISW/unWISE_Planck_ISW/dndz/xcorr_z_sampled-0.10-dr16_measured_bias_cmass+lowz_all_err_cut_off_z_gt_2.5/green.txt,/users/schaki/hi_class_pub_devel/Data/unWISE_Planck_ISW/unWISE_Planck_ISW/dndz/xcorr_z_sampled-0.10-dr16_measured_bias_cmass+lowz_all_err_cut_off_z_gt_3/red_16.2.txt' # use this with 'density' contribution to number counts
