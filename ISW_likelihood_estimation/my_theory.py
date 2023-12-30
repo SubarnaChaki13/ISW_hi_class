@@ -3,7 +3,7 @@ import numpy as np
 import sys
 np.set_printoptions(threshold=sys.maxsize)
 from math import pi
-from classy import Class
+from classy import Class, CosmoComputationError
 import matplotlib
 import matplotlib.pyplot as plt
 
@@ -60,22 +60,23 @@ class CosmoClass(Theory):
             # Compute cosmological observables for the first set of spectra parameters
             self.cosmo.set(self.spectra_params1)
             self.cosmo.compute()
-        except Exception as e:
+            # Calculate C_l values for the first set of spectra parameters
+            cls1 = self.cosmo.raw_cl(6143)
+            den_cls1 = self.cosmo.density_cl(6143)
+            ell = cls1['ell']
+            factor = 1.e10 * ell * (ell + 1.) / 2. / np.pi
+            state['den_factor'] = 1.e8 * den_cls1['ell'] * (den_cls1['ell'] + 1.) / 2. / np.pi
+
+            state['lensing_cls'] = {
+                'den_ell': den_cls1['ell'],
+                'den_cls': den_cls1['td']
+            }
+            self.cosmo.empty()
+
+        except CosmoComputationError as e:
             print(f"Error computing results in the first compute: {e}")
-            return False
+            return -np.inf
 
-        # Calculate C_l values for the first set of spectra parameters
-        cls1 = self.cosmo.raw_cl(6143)
-        den_cls1 = self.cosmo.density_cl(6143)
-        ell = cls1['ell']
-        factor = 1.e10 * ell * (ell + 1.) / 2. / np.pi
-        state['den_factor'] = 1.e8 * den_cls1['ell'] * (den_cls1['ell'] + 1.) / 2. / np.pi
-
-        state['lensing_cls'] = {
-            'den_ell': den_cls1['ell'],
-            'den_cls': den_cls1['td']
-        }
-        self.cosmo.empty()
 
         self.set(params_values_dict)
 
@@ -83,18 +84,19 @@ class CosmoClass(Theory):
             # Compute cosmological observables for the second set of spectra parameters
             self.cosmo.set(self.spectra_params2)
             self.cosmo.compute()
-        except Exception as e:
+            # Calculate C_l values for the second set of spectra parameters
+            cls2 = self.cosmo.raw_cl(6143)
+            den_cls2 = self.cosmo.density_cl(6143)
+
+            state['density_cls'] = {
+                'den_ell': den_cls2['ell'],
+                'den_cls': den_cls2['td']
+            }
+
+        except CosmoComputationError as e:
             print(f"Error computing results in the second compute: {e}")
-            return False
+            return -np.inf
 
-        # Calculate C_l values for the second set of spectra parameters
-        cls2 = self.cosmo.raw_cl(6143)
-        den_cls2 = self.cosmo.density_cl(6143)
-
-        state['density_cls'] = {
-            'den_ell': den_cls2['ell'],
-            'den_cls': den_cls2['td']
-        }
 
     def _get_ISW_cls(self, ell_factor=False, units="FIRASmuK2"):
         """
